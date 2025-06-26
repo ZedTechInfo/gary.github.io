@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gary Kamoto Mhone - Software Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .section:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            font-weight: bold;
+            margin: 0 auto;
+        }
+
+        .about-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .about-content p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Experience Section */
+        .experience-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            background: white;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            left: 50px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background: #667eea;
+            border-radius: 50%;
+        }
+
+        .timeline-item h3 {
+            color: #667eea;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .company {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .timeline-item li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .timeline-item li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .project-content p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            background: #f0f0f0;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-item h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-item a:hover {
+            color: #667eea;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .timeline-item {
+                left: 0;
+                margin-left: 30px;
+            }
+
+            .skills-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">Gary Mhone</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Gary Kamoto Mhone</h1>
+            <p>Full-Stack Software Engineer & Cybersecurity Specialist</p>
+            <p>6+ Years of Experience Building Scalable Web & Mobile Applications</p>
+            <a href="#contact" class="cta-button">Let's Work Together</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-grid">
+                <div class="about-image">GM</div>
+                <div class="about-content">
+                    <h3>Passionate Software Engineer from Zambia</h3>
+                    <p>I'm a highly motivated Computer Engineer with 6+ years of experience in web and mobile development. My expertise spans across multiple programming languages and frameworks, with a strong focus on building robust, scalable, and secure applications.</p>
+                    <p>Currently working as a Software Developer at TechPay Zambia Limited, where I've successfully scaled payment gateways, developed multi-platform notification systems, and created innovative solutions like WhatsApp chatbots for bill payment services.</p>
+                    <p>My passion extends beyond coding to cybersecurity, where I've conducted penetration testing and vulnerability assessments, helping organizations secure their digital assets and reduce security risks by up to 95%.</p>
+                    <p><strong>Age:</strong> 28 years old<br>
+                    <strong>Location:</strong> Lusaka, Zambia<br>
+                    <strong>Education:</strong> Diploma in Secondary School Teaching (Mathematics & Computer Science)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Elixir</span>
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">SQL</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Frameworks & Libraries</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Phoenix</span>
+                        <span class="skill-tag">Laravel</span>
+                        <span class="skill-tag">ReactJS</span>
+                        <span class="skill-tag">React Native</span>
+                        <span class="skill-tag">Flutter</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Web Technologies</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">REST APIs</span>
+                        <span class="skill-tag">OAuth</span>
+                        <span class="skill-tag">SMPP</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Cybersecurity</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Penetration Testing</span>
+                        <span class="skill-tag">Vulnerability Assessment</span>
+                        <span class="skill-tag">WAF</span>
+                        <span class="skill-tag">Maltego</span>
+                        <span class="skill-tag">Security Auditing</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Tools & Technologies</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Database Management</span>
+                        <span class="skill-tag">Server Administration</span>
+                        <span class="skill-tag">CI/CD</span>
+                        <span class="skill-tag">Cloud Services</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Mobile Development</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Android</span>
+                        <span class="skill-tag">iOS</span>
+                        <span class="skill-tag">Cross-Platform</span>
+                        <span class="skill-tag">App Store Publishing</span>
+                        <span class="skill-tag">Mobile UI/UX</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="experience-timeline">
+                <div class="timeline-item">
+                    <h3>Software Developer</h3>
+                    <div class="company">TechPay Zambia Limited</div>
+                    <div class="date">March 2024 - Present</div>
+                    <ul>
+                        <li>Developed optimized multi-platform notification system (SMS, Email, Instant Messaging) enhancing user experience</li>
+                        <li>Created and trained WhatsApp chatbot for bill payment services</li>
+                        <li>Scaled payment gateway to support 10x increase in merchants (10 to 100)</li>
+                        <li>Administered MPGS merchant accounts and optimized Mobile Money & Card payment processing</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <h3>Product Engineer</h3>
+                    <div class="company">Premier Credit Limited</div>
+                    <div class="date">August 2023 - March 2024</div>
+                    <ul>
+                        <li>Translated user needs into technical specifications</li>
+                        <li>Collaborated with cross-functional teams to design innovative software solutions</li>
+                        <li>Spearheaded call center expansion resulting in 120% increase in efficiency</li>
+                        <li>Implemented security compliance across all devices</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <h3>Software Engineer</h3>
+                    <div class="company">Premier Credit Limited</div>
+                    <div class="date">June 2022 - March 2024</div>
+                    <ul>
+                        <li>Developed applications in Elixir, PHP, React Native, Flutter, Python, and ReactJS</li>
+                        <li>Built SMPP application using Elixir and Phoenix for Airtel Zambia SMS integration</li>
+                        <li>Developed REST APIs and implemented OAuth authentication protocols</li>
+                        <li>Launched PremierCredit apps on Google Play Store and Apple App Store</li>
+                        <li>Conducted code reviews and mentored junior developers</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <h3>Application Security Specialist</h3>
+                    <div class="company">Various Financial Institutions</div>
+                    <div class="date">2020 - 2022</div>
+                    <ul>
+                        <li>Conducted penetration testing on critical bank applications using WAFaf, Maltego, Striker</li>
+                        <li>Identified and mitigated critical vulnerabilities preventing potential breaches</li>
+                        <li>Reduced security risks in new applications by 95% through secure coding practices</li>
+                        <li>Integrated security considerations into CMS portal upgrades ensuring industry compliance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">💳</div>
+                    <div class="project-content">
+                        <h3>TechPay Payment Gateway</h3>
+                        <p>Scalable payment processing system supporting 100+ merchants with multi-platform notifications and WhatsApp bot integration.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Elixir</span>
+                            <span class="tech-tag">Phoenix</span>
+                            <span class="tech-tag">MPGS</span>
+                            <span class="tech-tag">WhatsApp API</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">📱</div>
+                    <div class="project-content">
+                        <h3>PremierCredit Mobile App</h3>
+                        <p>Cross-platform mobile application for financial services, published on both Google Play Store and Apple App Store.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">REST API</span>
+                            <span class="tech-tag">OAuth</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">📧</div>
+                    <div class="project-content">
+                        <h3>SMPP SMS Integration</h3>
+                        <p>Robust SMS service integration with Airtel Zambia using Elixir and Phoenix framework, serving multiple company applications.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Elixir</span>
+                            <span class="tech-tag">Phoenix</span>
+                            <span class="tech-tag">SMPP</span>
+                            <span class="tech-tag">Airtel API</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">🔒</div>
+                    <div class="project-content">
+                        <h3>Banking Security Audit System</h3>
+                        <p>Comprehensive security assessment platform for financial institutions with automated vulnerability scanning and reporting.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Penetration Testing</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Maltego</span>
+                            <span class="tech-tag">Security Auditing</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">🌐</div>
+                    <div class="project-content">
+                        <h3>Fiber Optic Network Design</h3>
+                        <p>Designed and implemented fiber optic network infrastructure for Hybrid Poultry Farm, increasing bandwidth by 50%.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Network Design</span>
+                            <span class="tech-tag">Fiber Optics</span>
+                            <span class="tech-tag">Infrastructure</span>
+                            <span class="tech-tag">Wi-Fi</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">🏦</div>
+                    <div class="project-content">
+                        <h3>Banking Applications Portfolio</h3>
+                        <p>Maintained and upgraded critical banking applications including OTC solutions, Proxy payments, and integration with major banks.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">Laravel</span>
+                            <span class="tech-tag">Banking APIs</span>
+                            <span class="tech-tag">Security</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <p>I'm always interested in discussing new opportunities, innovative projects, or potential collaborations. Whether you need a full-stack developer, cybersecurity specialist, or technical consultant, I'd love to hear from you.</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3>Email</h3>
+                        <a href="mailto:kamotomhone@gmail.com">kamotomhone@gmail.com</a>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <h3>Phone</h3>
+                        <a href="tel:+260973872723">+260 973 872 723</a>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <h3>Location</h3>
+                        <p>Lusaka, Zambia</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <h3>LinkedIn</h3>
+                        <a href="https://www.linkedin.com/in/gary-mhone" target="_blank">linkedin.com/in/gary-mhone</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Gary Kamoto Mhone. All rights reserved. Built with passion and precision.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections for animation
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
