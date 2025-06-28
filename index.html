@@ -883,7 +883,7 @@
                     <div class="skill-category">
                         <h3>Cybersecurity & Compliance</h3>
                         <ul class="skill-list">
-                            <li class="skill-item">Penetration Testing (SQLi, XSS)</li>
+                            <li class="skill-item">Penetration Testing</li>
                             <li class="skill-item">Vulnerability Management</li>
                             <li class="skill-item">ISO 27001 / NIST Frameworks</li>
                             <li class="skill-item">PCI DSS Compliance</li>
@@ -896,7 +896,7 @@
                         <h3>Infrastructure & Operations</h3>
                         <ul class="skill-list">
                             <li class="skill-item">RESTful & GraphQL APIs</li>
-                            <li class="skill-item">MPGS (Mastercard Gateway)</li>
+                            <li class="skill-item">MPGS (Mastercard Gateway) & VISA</li>
                             <li class="skill-item">Server & Network Management</li>
                             <li class="skill-item">Git Version Control</li>
                             <li class="skill-item">Agile Methodologies</li>
@@ -1104,7 +1104,7 @@
                         <i class="fas fa-info-circle"></i> 
                         I'm actively seeking new opportunities to build and secure innovative solutions. For a full resume, references, or to discuss a project, please transmit a message.
                     </p>
-                    <form>
+                    <form id="contactForm">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" id="name" class="form-control" placeholder="Your name">
@@ -1117,7 +1117,7 @@
                             <label for="message">Message</label>
                             <textarea id="message" class="form-control" rows="5" placeholder="Your mission briefing..."></textarea>
                         </div>
-                        <button type="submit" class="btn-launch">Transmit Message</button>
+                        <button type="submit" id="submitBtn" class="btn-launch">Transmit Message</button>
                     </form>
                 </div>
             </div>
@@ -1268,65 +1268,35 @@
         });
     </script>
     <script>
-        tsParticles.load("tsparticles", {
-        fpsLimit: 60,
-        interactivity: {
-            events: {
-            onHover: {
-                enable: true,
-                mode: "repulse",
-            },
-            resize: true,
-            },
-            modes: {
-            repulse: {
-                distance: 100,
-                duration: 0.4,
-            },
-            },
-        },
-        particles: {
-            color: {
-            value: "#ffffff",
-            },
-            links: {
-            color: "#ffffff",
-            distance: 150,
-            enable: true,
-            opacity: 0.5,
-            width: 1,
-            },
-            collisions: {
-            enable: true,
-            },
-            move: {
-            direction: "none",
-            enable: true,
-            outModes: {
-                default: "bounce",
-            },
-            random: false,
-            speed: 2,
-            straight: false,
-            },
-            number: {
-            density: {
-                enable: true,
-                area: 800,
-            },
-            value: 80,
-            },
-            opacity: {
-            value: 0.5,
-            },
-            shape: {
-            type: "circle",
-            },
-            size: {
-            value: { min: 1, max: 5 },
-            },
-        },
-        detectRetina: true,
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            const form = document.getElementById('contactForm');
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // Simple validation
+            if (!name || !email || !message) {
+                alert('Please fill out all fields before transmitting.');
+                return;
+            }
+
+            // Construct the mailto link
+            const subject = `Portfolio Contact - From ${name}`;
+            const body = `You have a new message from your portfolio site:\n\nName: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+            
+            // Encode the subject and body for the URL
+            const mailtoLink = `mailto:kamotomhone@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+            // Open the user's default email client
+            window.location.href = mailtoLink;
+
+            // Optional: Give user feedback
+            const submitButton = this;
+            submitButton.innerHTML = '<i class="fas fa-check"></i> Redirecting to Mail...';
+            setTimeout(() => {
+                submitButton.innerHTML = 'Transmit Message';
+                form.reset(); // Clear the form
+            }, 3000); // Reset button text after 3 seconds
         });
     </script>
     
