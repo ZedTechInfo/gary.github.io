@@ -8,7 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
     <style>
         /* Base styles and reset */
         * {
@@ -1269,6 +1270,8 @@
     </script>
     <script>
         document.getElementById('submitBtn').addEventListener('click', function() {
+            event.preventDefault(); 
+            
             const form = document.getElementById('contactForm');
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
@@ -1276,7 +1279,15 @@
 
             // Simple validation
             if (!name || !email || !message) {
-                alert('Please fill out all fields before transmitting.');
+                Swal.fire({
+                    title: 'Mission Incomplete',
+                    text: 'Please fill out all fields before transmitting your message.',
+                    icon: 'warning',
+                    background: '#0a0a2a',
+                    color: '#e6f1ff',
+                    confirmButtonColor: '#4cc9f0',
+                    confirmButtonText: 'Roger That'
+                });
                 return;
             }
 
