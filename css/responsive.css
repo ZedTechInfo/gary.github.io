@@ -1,0 +1,134 @@
+/* Responsive design */
+@media (max-width: 1024px) {
+    .planet-1 {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .planet-2 {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .galaxy-section {
+        padding: 1.5rem;
+        min-height: 90vh;
+    }
+    
+    .contact-info {
+        gap: 0.8rem;
+    }
+    
+    .contact-badge {
+        padding: 0.4rem 0.8rem;
+    }
+    
+    .skills {
+        padding: 1.5rem;
+    }
+    
+    .timeline::before {
+        left: 20px;
+    }
+    
+    .timeline-item {
+        padding-left: 50px !important;
+        padding-right: 15px !important;
+        text-align: left !important;
+        margin-bottom: 2rem;
+    }
+    
+    .timeline-item:nth-child(odd) .timeline-content::before,
+    .timeline-item:nth-child(even) .timeline-content::before {
+        left: 12px;
+        transform: translateX(-50%);
+    }
+    
+    .space-nav {
+        flex-direction: column;
+        top: 1rem;
+        right: 1rem;
+        transform: translateX(150%);
+        transition: transform 0.3s ease;
+        padding: 1rem 0.8rem;
+    }
+    
+    .space-nav.active {
+        transform: translateX(0);
+    }
+    
+    .mobile-menu-btn {
+        display: flex;
+    }
+    
+    .btn-launch {
+        min-width: 200px;
+        min-height: 55px;
+        padding: 1rem 2rem;
+    }
+
+    .interests-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .galaxy-section {
+        padding: 1rem;
+    }
+    
+    .name {
+        font-size: 2.2rem;
+    }
+    
+    .title {
+        font-size: 1.2rem;
+    }
+    
+    .contact-badge {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .experience {
+        font-size: 1rem;
+    }
+    
+    .skill-categories {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .planet-1 {
+        width: 120px;
+        height: 120px;
+        top: 5%;
+    }
+    
+    .planet-2 {
+        width: 60px;
+        height: 60px;
+        bottom: 10%;
+    }
+    
+    .btn-launch {
+        width: 100%;
+        max-width: 280px;
+    }
+}
+
+@media (max-height: 600px) and (orientation: landscape) {
+    .galaxy-section {
+        min-height: auto;
+        padding: 4rem 1rem;
+    }
+    
+    .hero {
+        padding-top: 3rem;
+    }
+}
