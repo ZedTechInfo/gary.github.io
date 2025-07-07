@@ -78,11 +78,63 @@
     font-size: clamp(0.85rem, 2.5vw, 1rem);
 }
 
+
 .form-control:focus {
     outline: none;
     border-color: var(--accent);
-    box-shadow: 0 0 10px rgba(76, 201, 240, 0.3);
+    box-shadow: 0 0 10px rgba(76, 201, 240, 0.3), 0 0 15px rgba(76, 201, 240, 0.2);
+    transform: scale(1.02);
+    transition: all 0.3s ease;
 }
+
+.form-control.error {
+    border-color: #ff4d4d;
+    box-shadow: 0 0 10px rgba(255, 77, 77, 0.5);
+}
+
+.form-group .error-message {
+    color: #ff4d4d;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    display: none;
+}
+
+#form-message {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+    display: none;
+    text-align: center;
+}
+
+#form-message.success {
+    background-color: rgba(76, 201, 240, 0.2);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    display: block;
+}
+
+#form-message.error {
+    background-color: rgba(255, 77, 77, 0.2);
+    border: 1px solid #ff4d4d;
+    color: #ff4d4d;
+    display: block;
+}
+
+.btn-launch {
+    transition: all 0.3s ease;
+}
+
+.btn-launch:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-launch:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
 
 /* Footer */
 .space-footer {
