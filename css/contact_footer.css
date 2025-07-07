@@ -1,3 +1,7 @@
+#contact {
+    min-height: 33vh;
+}
+
 /* Contact section */
 .contact-container {
     max-width: 800px;
